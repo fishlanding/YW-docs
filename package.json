@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@mdit/plugin-figure": "^0.14.0",
     "vitepress": "^1.5.0",
     "vue": "^3.5.13"
   },
@@ -7,5 +8,10 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
+  },
+  "dependencies": {
+    "@theojs/lumen": "^5.0.2",
+    "pagefind": "^1.2.0",
+    "vitepress-plugin-pagefind": "^0.4.11"
   }
 }
