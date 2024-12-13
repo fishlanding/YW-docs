@@ -5,7 +5,7 @@ export default defineConfig({
   lang: "zh-cn",
   title: "鱼丸 Team",
   description: "一个致力于MC地图本地化和简体中文翻译的公益团队",
-  base: '/team.yuwan.top/',
+  base: '/YW-docs/',
   srcDir: './src',
   lastUpdated: true,
   markdown: {
