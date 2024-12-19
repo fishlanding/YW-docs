@@ -29,7 +29,7 @@ export default defineConfig({
         {
           text: '整合包',
           items: [
-            { text: '更新中...', collapsed: true, items: [{ text: 'bingo', link: '/modpack/bingo' }] },
+            { text: '更新中...', collapsed: false, items: [{ text: 'bingo', link: '/modpack/bingo' }] },
             { text: '归档', collapsed: true, items: [{ text: 'sun2', link: '/modpack/archive' }] }
           ]
         }
@@ -38,7 +38,12 @@ export default defineConfig({
         {
           text: '地图',
           items: [
-            { text: '已完成', collapsed: true, items: [{ text: 'snowy', link: '/map/done/snow' }] },
+            {
+              text: '已完成', collapsed: false, items: [
+                { text: '皇家坦克大战', link: '/map/done/ttr' },
+                { text: '雪地冲突', link: '/map/done/snowy-skirmish' }
+              ]
+            },
             { text: '计划中...', collapsed: true, items: [{ text: 'sun2', link: '/map/to-do/sun2' }] }
           ]
         }
