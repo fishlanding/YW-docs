@@ -1,6 +1,6 @@
 # 雪地冲突
 ![我是封面](https://ypy-uss.yuwan886.top/YW-docs/map/snowy-skirmish/snowy-skirmish.jpg)
-# 基本信息
+## 基本信息
 
 - 作者：[ZeroniaServer](https://www.planetminecraft.com/member/zeroniaserver/)
 - 原址：[PMC](https://www.planetminecraft.com/project/snowy-skirmish/)
@@ -8,9 +8,8 @@
 - 类型：`多人` `PVP` `MiniGames`
 - 汉化：[下崽](https://pan.quark.cn/s/05ad4fc53b7d)
 
----
 
-# 介绍
+## 介绍
 
 > ☃️ .*・ ‧❄。゚ •*・ Snowy Skirmish ・*• ゚。❄ ‧ ・*.☃️
 > 
@@ -18,7 +17,7 @@
 > 将休闲打雪仗提升到一个新的水平！
 >
 
-## 特点
+### 特点
 
 雪地冲突是一场快速而有趣的打雪仗，玩家需要收集礼物盒或将对手从地图上击倒，才能为他们的团队获得积分。
 
@@ -30,7 +29,7 @@
 
 道具是用于协助您或您的队友的特殊武器或实用物品。这些可以从地图上偶尔生成的红色礼盒中解锁。
 
-## 增益
+### 增益
 
 - 冰球：一种射程有限的坚固冰球，能够一击击倒敌人。
 - 热巧克力：消耗品;玩家可以喝热巧克力来快速恢复一些生命值，而被淘汰的玩家可以用它来恢复自己。

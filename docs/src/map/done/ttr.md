@@ -1,6 +1,6 @@
 # 皇家坦克大战
 ![我是封面](https://static.planetminecraft.com/files/image/minecraft/project/2021/356/14913254-ttr-render-mini_l.webp)
-# 基本信息
+## 基本信息
 
 - 作者：[**Flamingosaurus**](https://www.planetminecraft.com/member/flamingosaurus/)
 - 原址：[PMC](https://www.planetminecraft.com/project/toy-tank-royale-pvp-minigame/)
@@ -8,9 +8,7 @@
 - 类型：`多人` `PVP` `MiniGames`
 - 汉化：[下崽](https://pan.quark.cn/s/6925068dc547)
 
----
-
-# 介绍
+## 介绍
 
 Toy Tank Royale 是一款 .io 风格的 PVP 游戏，您可以在其中驾驶可爱的小坦克与朋友战斗。
 
@@ -18,7 +16,7 @@ Toy Tank Royale 是一款 .io 风格的 PVP 游戏，您可以在其中驾驶可
 
 不过要小心……当你死时，你会掉落一半的硬币！
 
-## 特征
+### 特征
 
 - 支持 1-64 名玩家
 - 异步游戏
@@ -28,7 +26,7 @@ Toy Tank Royale 是一款 .io 风格的 PVP 游戏，您可以在其中驾驶可
 - AI 坦克（最多 64 辆！）
 - 用于动态调整游戏设置的管理员菜单
 
-## 制作人员
+### 制作人员
 
 艺术–Frenderman
 
@@ -36,7 +34,7 @@ Toy Tank Royale 是一款 .io 风格的 PVP 游戏，您可以在其中驾驶可
 
 编程–Flamingosaurus
 
-## **Map Jam**？
+### **Map Jam**？
 
 这张地图最初是为 StickyPiston Map Jam 2021 制作的。每个团队有 7 天的时间来创建一个 8 人多人游戏地图，其中包含四个主题之一。我们选择了 “endless” 主题，总体排名第三。
 
@@ -52,4 +50,4 @@ Toy Tank Royale 是一款 .io 风格的 PVP 游戏，您可以在其中驾驶可
 
 较旧的地图版本可以在
 
-[https://www.curseforge.com/minecraft/worlds/toy-tank-royale](https://www.curseforge.com/minecraft/worlds/toy-tank-royale)
+[历史版本](https://www.curseforge.com/minecraft/worlds/toy-tank-royale)

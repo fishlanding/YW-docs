@@ -1,7 +1,9 @@
 {
   "devDependencies": {
     "@mdit/plugin-figure": "^0.14.0",
+    "@types/dom-view-transitions": "^1.0.5",
     "vitepress": "^1.5.0",
+    "vitepress-sidebar": "^1.30.2",
     "vue": "^3.5.13"
   },
   "scripts": {
@@ -11,7 +13,11 @@
   },
   "dependencies": {
     "@theojs/lumen": "^5.0.2",
+    "busuanzi.pure.js": "^1.0.3",
+    "medium-zoom": "^1.1.0",
+    "nprogress-v2": "^1.0.4",
     "pagefind": "^1.2.0",
+    "vitepress-plugin-comment-with-giscus": "^1.1.15",
     "vitepress-plugin-pagefind": "^0.4.11"
   }
 }

@@ -4,9 +4,12 @@ layout: home
 
 hero:
   name: "鱼丸 Team"
-  textsuffix: 'Theme'
+  textsuffix: ''
   text: "一个致力于MC地图本地化和简体中文翻译的公益团队"
   tagline: 目前只有一名成员:)
+  image:
+    src: /img/logo.png
+    alt: 鱼丸 Team
   actions:
     - theme: brand
       text: 看看地图
@@ -22,4 +25,5 @@ hero:
 #   - title: Feature C
 #     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
+<DataPanel />
 <Home />
