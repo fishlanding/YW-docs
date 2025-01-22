@@ -39,14 +39,14 @@ export default {
     app.component('Datapanel', DataPanel)
     app.component('ArticleMetadata', ArticleMetadata)
     if (inBrowser) {
-      router.onAfterRouteChanged = () => {
+      router.onAfterRouteChange = () => {
         busuanzi.fetch()
       },
         NProgress.configure({ showSpinner: false })
       router.onBeforeRouteChange = () => {
         NProgress.start()
       }
-      router.onAfterRouteChanged = () => {
+      router.onAfterRouteChange = () => {
         busuanzi.fetch()
         NProgress.done()
       }

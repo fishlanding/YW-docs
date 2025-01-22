@@ -10,6 +10,9 @@ export default defineConfig({
   description: "一个致力于MC地图本地化和简体中文翻译的公益团队",
   srcDir: './src',
   lastUpdated: true,
+  head: [
+    ['link',{ rel: 'icon', href: '/img/favicon.ico'}],
+  ],
   markdown: {
     config: (md) => {
       md.use(figure, { figcaption: 'alt', copyAttrs: '^class$', lazy: true }, md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {

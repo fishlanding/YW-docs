@@ -1,5 +1,5 @@
 # 皇家坦克大战
-![我是封面](https://static.planetminecraft.com/files/image/minecraft/project/2021/356/14913254-ttr-render-mini_l.webp)
+![我是封面](https://ypy-uss.yuwan886.top/YW-docs/map/ttr/ttr-cover.jpg)
 ## 基本信息
 
 - 作者：[**Flamingosaurus**](https://www.planetminecraft.com/member/flamingosaurus/)

@@ -1,1 +1,1 @@
-# team.yuwan.top
+# docs.yw-games.top
