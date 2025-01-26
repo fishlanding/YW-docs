@@ -1,1 +1,0 @@
-import{_ as e,o as t,c as a}from"./chunks/framework.DpCrEuUp.js";const _=JSON.parse('{"title":"","description":"","frontmatter":{"layout":"page"},"headers":[],"relativePath":"map/index.md","filePath":"map/index.md","lastUpdated":1734107656000}'),n={name:"map/index.md"};function o(r,s,d,p,c,i){return t(),a("div")}const l=e(n,[["render",o]]);export{_ as __pageData,l as default};

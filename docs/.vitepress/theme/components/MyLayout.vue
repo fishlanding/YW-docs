@@ -52,6 +52,10 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
 </template>
 
 <style>
+.check .icon {
+  top: -2px;
+}
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
     animation: none;

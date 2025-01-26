@@ -16,6 +16,9 @@ hero:
     - theme: alt
       text: 看看整合包
       link: /modpack/
+    - theme: sponsor
+      text: GitHub
+      link: https://github.com/fishlanding/YW-docs
 # features:
 #   - title: Feature A
 #     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
@@ -25,5 +28,8 @@ hero:
 #     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 
 ---
-<DataPanel />
+
+
+<HomeUnderline />
+<confetti />
 <Home />

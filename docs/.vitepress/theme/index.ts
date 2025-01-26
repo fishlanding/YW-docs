@@ -1,84 +1,97 @@
 // https://vitepress.dev/guide/custom-theme
-import { h } from 'vue'
-import type { Theme } from 'vitepress'
-import DefaultTheme from 'vitepress/theme'
-import './style.css'
-import '@theojs/lumen/theme'
-import { HomeUnderline } from '@theojs/lumen'
-import { DocVideoLink } from '@theojs/lumen'
-import { DocBox, DocLinks, DocBoxCube } from '@theojs/lumen'
+import { h } from 'vue';
+import type { Theme } from 'vitepress';
+import DefaultTheme from 'vitepress/theme';
 import mediumZoom from 'medium-zoom';
 import { onMounted, watch, nextTick } from 'vue';
-import { loadEnv, useData, useRoute } from 'vitepress';
-import './style/index.css'
-import ywcomponents from "./components/ywcomponents.vue"
-import Linkcard from './components/Linkcard.vue'
-import DataPanel from "./components/DataPanel.vue"
+import { useData, useRoute } from 'vitepress';
+
+// giscus评论
+import giscusTalk from 'vitepress-plugin-comment-with-giscus';
+// 进度条
+import { NProgress } from 'nprogress-v2/dist/index.js';
+import 'nprogress-v2/dist/index.css';
+
+import './style.css';
+import './style/index.css';
+
+
+// 自定义全局组件
+import ywcomponents from './components/ywcomponents.vue';
+import Linkcard from './components/Linkcard.vue';
+import ArticleMetadata from './components/ArticleMetadata.vue';
+import HomeUnderline from './components/HomeUnderline.vue';
+import xgplayer from './components/xgplayer.vue';
+import MyLayout from './components/MyLayout.vue';
+import backtotop from './components/backtotop.vue';
+import confetti from "./components/confetti.vue"
+
+
+// 不蒜子
 import { inBrowser } from 'vitepress'
 import busuanzi from 'busuanzi.pure.js'
-import ArticleMetadata from "./components/ArticleMetadata.vue"
-import giscusTalk from 'vitepress-plugin-comment-with-giscus';
-import theme from 'vitepress/theme'
-import { NProgress } from 'nprogress-v2/dist/index.js'
-import 'nprogress-v2/dist/index.css'
-import MyLayout from './components/MyLayout.vue'
-import backtotop from "./components/backtotop.vue"
+
+// 评论区
+const GISCUS_CONFIG = {
+  repo: 'YW-Chinese-Team/yw-docs-comment-section', // Repository
+  repoId: 'R_kgDONf0EWg', // Repository ID
+  category: 'Announcements', // Discussion category
+  categoryId: 'DIC_kwDONf0EWs4ClXWL', // Discussion category ID
+  mapping: 'pathname',
+  inputPosition: 'top',
+  theme: 'preferred_color_scheme',
+  loadEnv: 'lazy',
+  lang: 'zh-CN',
+};
+const setupGiscus = (frontmatter, route) => {
+  giscusTalk(GISCUS_CONFIG, { frontmatter, route }, true);
+};
+
+// 图片放大
+const initZoom = () => {
+  mediumZoom('.main img', { background: 'var(--vp-c-bg)' });
+};
 
 
 export default {
   extends: DefaultTheme,
   Layout: MyLayout,
   enhanceApp: ({ app, router }) => {
-    app.component('Home', HomeUnderline)
-    app.component('Vid', DocVideoLink)
-    app.component('Box', DocBox)
-    app.component('Links', DocLinks)
-    app.component('BoxCube', DocBoxCube)
-    app.component('ywcomponents', ywcomponents)
-    app.component('Linkcard', Linkcard)
-    app.component('Datapanel', DataPanel)
-    app.component('ArticleMetadata', ArticleMetadata)
+    // Register global components
+    app.component('ywcomponents', ywcomponents);
+    app.component('Linkcard', Linkcard);
+    app.component('ArticleMetadata', ArticleMetadata);
+    app.component('HomeUnderline', HomeUnderline);
+    app.component('xgplayer', xgplayer);
+    app.component('confetti' , confetti);
+
+    // 不蒜子
     if (inBrowser) {
-      router.onAfterRouteChange = () => {
-        busuanzi.fetch()
-      },
-        NProgress.configure({ showSpinner: false })
+      NProgress.configure({ showSpinner: false })
       router.onBeforeRouteChange = () => {
-        NProgress.start()
+        NProgress.start() // 开始进度条
       }
       router.onAfterRouteChange = () => {
-        busuanzi.fetch()
-        NProgress.done()
-      }
+         busuanzi.fetch()
+         NProgress.done() // 停止进度条
+       }
     }
   },
   setup() {
     const route = useRoute();
-    const initZoom = () => {
-      mediumZoom('.main img', { background: 'var(--vp-c-bg)' });
-    };
+    const { frontmatter } = useData();
+
+    // Initialize medium-zoom on mount and route change
     onMounted(() => {
       initZoom();
     });
+
     watch(
       () => route.path,
       () => nextTick(() => initZoom())
     );
-    const { frontmatter } = useData();
-    giscusTalk({
-      repo: 'YW-Chinese-Team/yw-docs-comment-section', //仓库
-      repoId: 'R_kgDONf0EWg', //仓库ID
-      category: 'Announcements', // 讨论分类
-      categoryId: 'DIC_kwDONf0EWs4ClXWL', //讨论分类ID
-      mapping: 'pathname',
-      inputPosition: 'top',
-      theme: 'preferred_color_scheme',
-      loadEnv: "lazy",
-      lang: 'zh-CN',
-    },
-      {
-        frontmatter, route
-      },
-      true)
-  }
-} satisfies Theme
+
+    // giscus评论区
+    setupGiscus(frontmatter, route);
+  },
+} satisfies Theme;
