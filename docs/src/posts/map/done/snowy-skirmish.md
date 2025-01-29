@@ -1,3 +1,14 @@
+---
+title: 雪地冲突
+tags: 
+ - 多人
+ - PVP
+ - MiniGames
+created: 2024-02-07
+updated: 2024-05-21
+cover: https://ypy-uss.yuwan886.top/YW-docs/map/snowy-skirmish/snowy-skirmish.jpg
+---
+
 # 雪地冲突
 ![我是封面](https://ypy-uss.yuwan886.top/YW-docs/map/snowy-skirmish/snowy-skirmish.jpg)
 ## 基本信息

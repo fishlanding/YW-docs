@@ -1,3 +1,14 @@
+---
+title: 谜宅惊魂
+tags: 
+ - 多人
+ - 解密
+ - 恐怖
+created: 2025-01-27
+updated: 2025-01-28
+cover: https://ypy-uss.yuwan886.top/YW-docs/map/thh/thh_cover.png
+---
+
 # 谜宅惊魂
 ![我是封面](https://ypy-uss.yuwan886.top/YW-docs/map/thh/thh_cover.png)
 ## 基本信息

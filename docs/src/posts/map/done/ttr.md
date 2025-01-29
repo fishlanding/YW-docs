@@ -1,3 +1,14 @@
+---
+title: 皇家坦克大战
+tags: 
+ - 多人
+ - PVP
+ - MiniGames
+created: 2024-12-27
+updated: 2025-01-05
+cover: https://ypy-uss.yuwan886.top/YW-docs/map/ttr/ttr-cover.png
+---
+
 # 皇家坦克大战
 ![我是封面](https://ypy-uss.yuwan886.top/YW-docs/map/ttr/ttr-cover.jpg)
 ## 基本信息

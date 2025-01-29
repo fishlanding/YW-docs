@@ -22,10 +22,17 @@ import Linkcard from './components/Linkcard.vue';
 import ArticleMetadata from './components/ArticleMetadata.vue';
 import HomeUnderline from './components/HomeUnderline.vue';
 import xgplayer from './components/xgplayer.vue';
-import MyLayout from './components/MyLayout.vue';
 import backtotop from './components/backtotop.vue';
 import confetti from "./components/confetti.vue"
+import AgreementModal from './components/AgreementModal.vue'
+import Archive from './components/Archive.vue'
+import TagPage from'./components/TagPage.vue'
 
+// git历史
+import {
+  NolebaseGitChangelogPlugin
+} from '@nolebase/vitepress-plugin-git-changelog/client'
+import '@nolebase/vitepress-plugin-git-changelog/client/style.css'
 
 // 不蒜子
 import { inBrowser } from 'vitepress'
@@ -55,15 +62,25 @@ const initZoom = () => {
 
 export default {
   extends: DefaultTheme,
-  Layout: MyLayout,
+  Layout() {
+		return h(DefaultTheme.Layout, null, {
+			"doc-footer-before": () => h(backtotop),
+      "layout-bottom": () => h(AgreementModal)
+      
+		})
+	},
   enhanceApp: ({ app, router }) => {
-    // Register global components
+    // 注册全局组件
     app.component('ywcomponents', ywcomponents);
     app.component('Linkcard', Linkcard);
     app.component('ArticleMetadata', ArticleMetadata);
     app.component('HomeUnderline', HomeUnderline);
     app.component('xgplayer', xgplayer);
-    app.component('confetti' , confetti);
+    app.component('confetti', confetti);
+    app.component('AgreementModal', AgreementModal);
+    app.component("Archive", Archive);
+    app.component("TagPage", TagPage);
+    app.use(NolebaseGitChangelogPlugin);
 
     // 不蒜子
     if (inBrowser) {
@@ -72,9 +89,9 @@ export default {
         NProgress.start() // 开始进度条
       }
       router.onAfterRouteChange = () => {
-         busuanzi.fetch()
-         NProgress.done() // 停止进度条
-       }
+        busuanzi.fetch()
+        NProgress.done() // 停止进度条
+      }
     }
   },
   setup() {
@@ -94,4 +111,4 @@ export default {
     // giscus评论区
     setupGiscus(frontmatter, route);
   },
-} satisfies Theme;
+} satisfies Theme

@@ -3,9 +3,20 @@ import { figure } from '@mdit/plugin-figure'
 import { pagefindPlugin, chineseSearchOptimize } from 'vitepress-plugin-pagefind'
 import { generateSidebar, withSidebar } from 'vitepress-sidebar'
 import { devDependencies } from '../../package.json'
+import { compression } from 'vite-plugin-compression2'
+
+//git 历史
+import {
+  GitChangelog,
+  GitChangelogMarkdownSection,
+} from '@nolebase/vitepress-plugin-git-changelog/vite'
+
+// 双向链接
+import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links'
+
 
 export default defineConfig({
-  lang: "zh-cn",
+  lang: "zh-CN",
   title: "鱼丸 Team",
   description: "一个致力于MC地图本地化和简体中文翻译的公益团队",
   srcDir: './src',
@@ -24,11 +35,15 @@ export default defineConfig({
     },
     lineNumbers: true,
     config: (md) => {
-      md.use(figure, { figcaption: 'alt', copyAttrs: '^class$', lazy: true }, md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
-        let htmlResult = slf.renderToken(tokens, idx, options);
-        if (tokens[idx].tag === 'h1') htmlResult += `<ArticleMetadata />`;
-        return htmlResult;
-      })
+      md.use(BiDirectionalLinks({
+        dir: 'docs/src'
+      }),
+        figure,
+        { figcaption: 'alt', copyAttrs: '^class$', lazy: true }, md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
+          let htmlResult = slf.renderToken(tokens, idx, options);
+          if (tokens[idx].tag === 'h1') htmlResult += `<ArticleMetadata />`;
+          return htmlResult;
+        })
     },
     image: { lazyLoading: true }
   },
@@ -36,14 +51,25 @@ export default defineConfig({
   vite: {
     plugins: [pagefindPlugin({
       customSearchQuery: chineseSearchOptimize, btnPlaceholder: '搜索', placeholder: '搜索文档', emptyText: '空空如也', heading: '共: {{searchResult}} 条结果', excludeSelector: ['img', 'a.header-anchor']
-    })],
+    }),
+    GitChangelog({
+      // 仓库链接
+      repoURL: () => 'https://github.com/fishlanding/YW-docs',
+    }),
+    GitChangelogMarkdownSection(),
+    compression({
+      "threshold": 500
+    }),
+    ],
   },
   sitemap: {
     hostname: 'https://docs.yw-games.top',
   },
   //按钮自定义
   themeConfig: {
-    darkModeSwitchLabel: '深浅模式',
+    darkModeSwitchLabel: '外观',
+    darkModeSwitchTitle: '切换到暗黑模式',
+    lightModeSwitchTitle: '切换到明亮模式',
     sidebarMenuLabel: '目录',
     returnToTopLabel: '返回顶部',
     docFooter: {
@@ -61,12 +87,18 @@ export default defineConfig({
         timeStyle: 'medium'
       },
     },
+    notFound: {
+      title: '前面的区域以后再来探索吧:)',
+      quote: '你来到了没有知识的荒原',
+      linkLabel: '返回首页',
+      linkText: '看看主页'
+    },
     //导航栏
     nav: [
       { text: '主页', link: '/' },
-      { text: '地图', link: '/map' },
-      { text: '整合包', link: '/modpack' },
-      { text: `VitePress ${ devDependencies.vitepress.replace('^','') }`, link: 'https://vitepress.dev/zh/', noIcon: true },
+      { text: '归档', link: '/posts/archives' },
+      { text: '标签', link: '/posts/tags' },
+      { text: `VitePress ${devDependencies.vitepress.replace('^', '')}`, link: 'https://vitepress.dev/zh/', noIcon: true },
     ],
     //编辑模式
     editLink: {
@@ -76,9 +108,9 @@ export default defineConfig({
     //自动侧边栏
     sidebar: generateSidebar([
       {
-        documentRootPath: '/docs/src',
+        documentRootPath: '/docs/src/posts',
         scanStartPath: 'map',
-        resolvePath: '/map/',
+        resolvePath: '/posts/map/',
         useTitleFromFrontmatter: true,
         useTitleFromFileHeading: true,
         useFolderTitleFromIndexFile: true,
@@ -86,9 +118,9 @@ export default defineConfig({
         collapsed: false
       },
       {
-        documentRootPath: '/docs/src',
+        documentRootPath: '/docs/src/posts',
         scanStartPath: 'modpack',
-        resolvePath: '/modpack/',
+        resolvePath: '/posts/modpack/',
         useTitleFromFrontmatter: true,
         useTitleFromFileHeading: true,
         useFolderTitleFromIndexFile: true,

@@ -4,7 +4,7 @@ layout: home
 hero:
   name: "鱼丸 Team"
   textsuffix: ''
-  text: "一个致力于MC地图本地化和简体中文翻译的公益团队"
+  text: "致力于成为Minecraft高手"
   tagline: 目前只有一名成员:)
   image:
     src: /img/logo.png
@@ -12,10 +12,10 @@ hero:
   actions:
     - theme: brand
       text: 看看地图
-      link: /map/
+      link: /posts/map/
     - theme: alt
       text: 看看整合包
-      link: /modpack/
+      link: /posts/modpack/
     - theme: sponsor
       text: GitHub
       link: https://github.com/fishlanding/YW-docs
@@ -26,7 +26,6 @@ hero:
 #     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 #   - title: Feature C
 #     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-
 ---
 
 
