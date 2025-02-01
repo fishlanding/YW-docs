@@ -2,7 +2,7 @@
 <script>
 const DEFAULT_CONFIG = {
   title: '用户协议与隐私政策',
-  content: '请仔细阅读并同意相关协议\n\n- 项目1\n- 项目2',
+  content: '请仔细阅读并同意还不存在的**霸王协议**',
   interceptPattern: /(quark\.cn|pan\.quark\.cn)/,
 
   texts: {
