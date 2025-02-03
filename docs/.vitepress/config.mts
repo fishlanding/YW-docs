@@ -18,7 +18,7 @@ import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links'
 export default defineConfig({
   lang: "zh-CN",
   title: "鱼丸 Team",
-  description: "一个致力于MC地图本地化和简体中文翻译的公益团队",
+  description: "致力于成为Minecraft高手",
   srcDir: './src',
   lastUpdated: true,
   head: [
