@@ -1,8 +1,8 @@
 ---
-title: 躲猫猫最终版本
-tags: 
- - 多人
- - MiniGames
+title: 躲猫猫最终版
+tags:
+  - 多人
+  - MiniGames
 created: 2025-02-01
 updated: 2025-02-01
 cover: https://ypy-uss.yuwan886.top/YW-docs/map/hasf/hasf_cover.jpg

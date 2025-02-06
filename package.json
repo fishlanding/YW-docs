@@ -2,10 +2,10 @@
   "type": "module",
   "devDependencies": {
     "@mdit/plugin-figure": "^0.16.0",
-    "@nolebase/markdown-it-bi-directional-links": "^2.12.1",
-    "@nolebase/vitepress-plugin-git-changelog": "^2.12.1",
+    "@nolebase/markdown-it-bi-directional-links": "^2.13.0",
+    "@nolebase/vitepress-plugin-git-changelog": "^2.13.0",
     "@types/dom-view-transitions": "^1.0.5",
-    "@types/node": "^22.10.10",
+    "@types/node": "^22.13.1",
     "canvas-confetti": "^1.9.3",
     "vitepress": "^1.6.3",
     "vitepress-sidebar": "^1.30.2",

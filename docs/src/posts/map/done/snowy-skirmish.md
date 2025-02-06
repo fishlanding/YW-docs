@@ -13,7 +13,7 @@ cover: https://ypy-uss.yuwan886.top/YW-docs/map/snowy-skirmish/snowy-skirmish.jp
 ![我是封面](https://ypy-uss.yuwan886.top/YW-docs/map/snowy-skirmish/snowy-skirmish.jpg)
 ## 基本信息
 
-- 作者：[ZeroniaServer](https://www.planetminecraft.com/member/zeroniaserver/)
+- 作者：[**ZeroniaServer**](https://www.planetminecraft.com/member/zeroniaserver/)
 - 原址：[PMC](https://www.planetminecraft.com/project/snowy-skirmish/)
 - 版本：1.21.3
 - 类型：`多人` `PVP` `MiniGames`
