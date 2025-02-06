@@ -16,7 +16,7 @@ cover: https://ypy-uss.yuwan886.top/YW-docs/map/duel-tnt/dt_cover.jpg
 - 原址：[PMC](https://www.planetminecraft.com/project/duel-tnt-realms-published-1-12-and-1-11/)
 - 版本：1.21.4
 - 类型：`多人` `PVP`
-- 汉化：敬请期待
+- 汉化：[下崽](https://pan.quark.cn/s/e55e73a1fc90)
 
 ## 介绍
 
@@ -26,7 +26,7 @@ cover: https://ypy-uss.yuwan886.top/YW-docs/map/duel-tnt/dt_cover.jpg
 
 你能找到所有 11 个职业吗？;)
 
-新的超级有趣的职业。
+全新职业—**碎星**
 
 请务必安装资源包！（[链接](https://www.dropbox.com/scl/fi/q2w538pgswq2my9d6xu41/Season9.2.4c_pack.zip?rlkey=f4eb1lv0gpwvap7a968d9p7ke&st=ppd8j4nv&dl=0)）
 
