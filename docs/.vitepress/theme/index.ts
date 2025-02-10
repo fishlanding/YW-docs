@@ -4,13 +4,15 @@ import type { Theme } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
 import mediumZoom from 'medium-zoom';
 import { onMounted, watch, nextTick } from 'vue';
-import { useData, useRoute } from 'vitepress';
+import { inBrowser, useData, useRoute } from 'vitepress';
 
 // giscus评论
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 // 进度条
 import { NProgress } from 'nprogress-v2/dist/index.js';
 import 'nprogress-v2/dist/index.css';
+
+
 
 import './style.css';
 import './style/index.css';
@@ -26,7 +28,9 @@ import backtotop from './components/backtotop.vue';
 import confetti from "./components/confetti.vue"
 import AgreementModal from './components/AgreementModal.vue'
 import Archive from './components/Archive.vue'
-import TagPage from'./components/TagPage.vue'
+import TagPage from './components/TagPage.vue'
+import MinecraftServer from './components/MinecraftServer.vue'
+import VisitStats from './components/VisitStats.vue'
 
 // git历史
 import {
@@ -34,9 +38,6 @@ import {
 } from '@nolebase/vitepress-plugin-git-changelog/client'
 import '@nolebase/vitepress-plugin-git-changelog/client/style.css'
 
-// 不蒜子
-import { inBrowser } from 'vitepress'
-import busuanzi from 'busuanzi.pure.js'
 
 // 评论区
 const GISCUS_CONFIG = {
@@ -63,12 +64,13 @@ const initZoom = () => {
 export default {
   extends: DefaultTheme,
   Layout() {
-		return h(DefaultTheme.Layout, null, {
-			"doc-footer-before": () => h(backtotop),
-      "layout-bottom": () => h(AgreementModal)
-      
-		})
-	},
+    return h(DefaultTheme.Layout, null, {
+      "doc-footer-before": () => h(backtotop),
+      "layout-bottom": () => h(AgreementModal),
+      'doc-footer-after': () => h(VisitStats)
+
+    })
+  },
   enhanceApp: ({ app, router }) => {
     // 注册全局组件
     app.component('ywcomponents', ywcomponents);
@@ -81,18 +83,19 @@ export default {
     app.component("Archive", Archive);
     app.component("TagPage", TagPage);
     app.use(NolebaseGitChangelogPlugin);
+    app.component('MinecraftServer', MinecraftServer);
+    app.component('VisitStats', VisitStats);
 
-    // 不蒜子
     if (inBrowser) {
       NProgress.configure({ showSpinner: false })
       router.onBeforeRouteChange = () => {
         NProgress.start() // 开始进度条
       }
       router.onAfterRouteChange = () => {
-        busuanzi.fetch()
         NProgress.done() // 停止进度条
       }
     }
+
   },
   setup() {
     const route = useRoute();

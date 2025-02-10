@@ -225,13 +225,16 @@ onUnmounted(() => {
   background: var(--bg-color);
   border-radius: var(--border-radius);
   width: 90%;
-  max-width: var(--max-width, 475px); /* 缩放后的最大宽度 */
-  max-height: var(--max-height, 267px); /* 缩放后的最大高度，保持16:9比例 */
+  max-width: var(--max-width, 475px);
+  /* 缩放后的最大宽度 */
+  max-height: var(--max-height, 267px);
+  /* 缩放后的最大高度，保持16:9比例 */
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   margin: 2vmax;
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* 防止内容溢出 */
+  overflow: hidden;
+  /* 防止内容溢出 */
 }
 
 .content-transition-enter-active,
@@ -281,8 +284,10 @@ onUnmounted(() => {
 }
 
 .modal-title {
-  margin: 0 0 16px; /* 调整下边距以适应缩小尺寸 */
-  font-size: 1.2em; /* 调整字体大小 */
+  margin: 0 0 16px;
+  /* 调整下边距以适应缩小尺寸 */
+  font-size: 1.2em;
+  /* 调整字体大小 */
   color: var(--primary-color);
   text-align: center;
 }
@@ -291,22 +296,26 @@ onUnmounted(() => {
   flex: 1;
   overflow-y: auto;
   line-height: 1.6;
-  font-size: 0.9rem; /* 调整字体大小 */
+  font-size: 0.9rem;
+  /* 调整字体大小 */
 }
 
 .action-buttons {
   display: flex;
   gap: min(8px, 1vmin);
-  margin-top: 16px; /* 调整上边距 */
+  margin-top: 16px;
+  /* 调整上边距 */
 }
 
 .agree-button,
 .cancel-button {
   flex: 1;
-  padding: 0.5rem 1rem; /* 进一步减少内边距 */
+  padding: 0.5rem 1rem;
+  /* 进一步减少内边距 */
   border: none;
   border-radius: 8px;
-  font-size: 0.9rem; /* 调整字体大小 */
+  font-size: 0.9rem;
+  /* 调整字体大小 */
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -344,7 +353,8 @@ onUnmounted(() => {
   .modal-container {
     margin: 8px;
     width: calc(100% - 16px);
-    max-height: calc((100% - 16px) * 9 / 16); /* 16:9比例 */
+    max-height: calc((100% - 16px) * 9 / 16);
+    /* 16:9比例 */
   }
 
   .modal-title {

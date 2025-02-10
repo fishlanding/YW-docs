@@ -4,6 +4,7 @@ import { pagefindPlugin, chineseSearchOptimize } from 'vitepress-plugin-pagefind
 import { generateSidebar, withSidebar } from 'vitepress-sidebar'
 import { devDependencies } from '../../package.json'
 import { compression } from 'vite-plugin-compression2'
+import { VitePressAnalytics } from './theme/utils/googleanalytics'
 
 //git 历史
 import {
@@ -52,6 +53,9 @@ export default defineConfig({
     plugins: [pagefindPlugin({
       customSearchQuery: chineseSearchOptimize, btnPlaceholder: '搜索', placeholder: '搜索文档', emptyText: '空空如也', heading: '共: {{searchResult}} 条结果', excludeSelector: ['img', 'a.header-anchor']
     }),
+    VitePressAnalytics({
+      measurementId: 'G-YGB9T93R16' // 替换为你的 Google Analytics 测量 ID
+    }),
     GitChangelog({
       // 仓库链接
       repoURL: () => 'https://github.com/fishlanding/YW-docs',
@@ -98,6 +102,14 @@ export default defineConfig({
       { text: '主页', link: '/' },
       { text: '归档', link: '/posts/archives' },
       { text: '标签', link: '/posts/tags' },
+      { "text": '团队', link: '/team' },
+      {
+        text: '更多', items: [
+          { "text": '教程', link: '/posts/tutorial' },
+          { "text": '服务器状态', link: '/server' },
+
+        ]
+      },
       { text: `VitePress ${devDependencies.vitepress.replace('^', '')}`, link: 'https://vitepress.dev/zh/', noIcon: true },
     ],
     //编辑模式
@@ -126,11 +138,21 @@ export default defineConfig({
         useFolderTitleFromIndexFile: true,
         sortFolderTo: 'top',
         collapsed: false
+      },
+      {
+        documentRootPath: '/docs/src/posts',
+        scanStartPath: 'tutorial',
+        resolvePath: '/posts/tutorial/',
+        useTitleFromFrontmatter: true,
+        useTitleFromFileHeading: true,
+        useFolderTitleFromIndexFile: true,
+        sortFolderTo: 'top',
+        collapsed: false
       }
     ]),
     // 页脚
     footer: {
-      message: '本站总访问量 <span id="busuanzi_value_site_pv" /> 次    本站访客数 <span id="busuanzi_value_site_uv" /> 人次',
+      message: '你好',
       copyright: 'Copyright © 2024-2025 一条鱼丸_'
     },
     socialLinks: [

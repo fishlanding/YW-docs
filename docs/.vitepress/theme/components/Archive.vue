@@ -57,10 +57,6 @@
                 </div>
             </div>
         </div>
-
-        <button v-if="showBackToTop" @click="scrollToTop" class="back-to-top">
-            ↑ 返回顶部
-        </button>
     </div>
 </template>
 
@@ -68,7 +64,6 @@
 import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { data as postsData } from '../utils/post.data.ts'
 
-const showBackToTop = ref(false)
 const hoverPost = ref(null)
 
 const formatDate = (timestamp) => {
@@ -101,13 +96,6 @@ const processedData = computed(() => {
 
 const sortedYears = computed(() => processedData.value.sortedYears)
 const yearMap = computed(() => processedData.value.yearMap)
-
-const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
-
-const handleScroll = () => showBackToTop.value = window.scrollY > 300
-
-onMounted(() => window.addEventListener('scroll', handleScroll))
-onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 </script>
 
 <style scoped>
@@ -363,30 +351,6 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
         background-color: #4B5563;
         color: var(--vp-c-brand);
     }
-}
-
-/* 返回顶部按钮 */
-.back-to-top {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    padding: 0.75rem 1.25rem;
-    background-color: var(--vp-c-brand);
-    color: white;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: background-color var(--transition-duration), opacity var(--transition-duration), transform var(--transition-duration);
-    opacity: 0.8;
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.back-to-top:hover {
-    background-color: #2563EB;
-    /* 深一点的品牌色 */
-    opacity: 1;
-    transform: translateY(-3px);
 }
 
 /* 动画效果 */

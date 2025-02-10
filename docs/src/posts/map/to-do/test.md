@@ -1,13 +1,12 @@
 ---
 outline: deep
 gitChangelog: false
+comment: false
 title: 测试
-tags: []
+tags: 
 created: 2024-05-07
 updated: 2024-05-18
 ---
-
-
 
 [[ttr|皇家坦克大战]]
 
@@ -21,6 +20,9 @@ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; pic
 allowfullscreen>
 </iframe>
 
+## 容器
+
+### 自带样式
 
 ::: info 注释
 注释是灰色
@@ -39,32 +41,26 @@ allowfullscreen>
 危险是红色
 :::
 
-
-```sh
-#默认有行号
-pnpm -v
-```
-
-```sh:no-line-numbers
-#关闭行号
-pnpm -v
-```
-
-
-
-::: code-group
-
-```sh [pnpm]
-#查询pnpm版本
-pnpm -v
-```
-
-```sh [yarn]
-#查询yarn版本
-yarn -v
-```
-
+::: details 点我查看
+这是一条详情，自定义格式：details+空格+自定义文字
 :::
+
+### Gayhub 样式
+
+> [!NOTE] 重要
+> 强调用户在快速浏览文档时也不应忽略的重要信息。
+
+> [!TIP]
+> 有助于用户更顺利达成目标的建议性信息。
+
+> [!IMPORTANT]
+> 对用户达成目标至关重要的信息。
+
+> [!WARNING]
+> 因为可能存在风险，所以需要用户立即关注的关键内容。
+
+> [!CAUTION]
+> 行为可能带来的负面影响。
 
 
 <confetti />
