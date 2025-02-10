@@ -6,7 +6,8 @@ export async function handler(req: any, res: any) {
     try {
         const auth = new google.auth.GoogleAuth({
             credentials: {
-                // 你的 Google Analytics API 凭据
+                client_email: process.env.GA_CLIENT_EMAIL,
+                private_key: process.env.GA_PRIVATE_KEY?.replace(/\\n/g, '\n')
             },
             scopes: ['https://www.googleapis.com/auth/analytics.readonly']
         })
@@ -38,10 +39,13 @@ async function getAnalyticsData(auth: any, startDate: string) {
         ids: 'ga:' + process.env.GA_VIEW_ID,
         'start-date': startDate,
         'end-date': 'today',
-        metrics: 'ga:users'
+        metrics: 'ga:pageviews,ga:users'
     })
 
-    return parseInt(result.data.totalsForAllResults['ga:users']) || 0
+    return {
+        users: parseInt(result.data.totalsForAllResults['ga:users']) || 0,
+        pageviews: parseInt(result.data.totalsForAllResults['ga:pageviews']) || 0
+    }
 }
 
 async function getTotalVisits(auth: any) {
@@ -50,8 +54,11 @@ async function getTotalVisits(auth: any) {
         ids: 'ga:' + process.env.GA_VIEW_ID,
         'start-date': '2005-01-01',
         'end-date': 'today',
-        metrics: 'ga:users'
+        metrics: 'ga:pageviews,ga:users'
     })
 
-    return parseInt(result.data.totalsForAllResults['ga:users']) || 0
+    return {
+        users: parseInt(result.data.totalsForAllResults['ga:users']) || 0,
+        pageviews: parseInt(result.data.totalsForAllResults['ga:pageviews']) || 0
+    }
 }

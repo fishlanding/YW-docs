@@ -13,7 +13,10 @@ export function injectAnalyticsScript(measurementId: string) {
     }
 
     gtag('js', new Date())
-    gtag('config', measurementId)
+    gtag('config', measurementId, {
+        send_page_view: true,
+        anonymize_ip: true
+    })
 
     window.gtag = gtag
 }
