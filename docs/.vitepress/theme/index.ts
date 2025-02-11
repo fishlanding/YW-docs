@@ -32,7 +32,7 @@ import Archive from './components/Archive.vue'
 import TagPage from './components/TagPage.vue'
 import MinecraftServer from './components/MinecraftServer.vue'
 import busuanzi from 'busuanzi.pure.js'
-import MyLayout from './components/MyLayout.vue'
+import DataPanel from "./components/DataPanel.vue"
 // 不蒜子
 function reloadBusuanzi() {
   const busuanziScriptId = "busuanzi-script";
@@ -84,9 +84,10 @@ export default {
   extends: DefaultTheme,
   Layout() {
     return h(DefaultTheme.Layout, null, {
-      "doc-footer-after": () => h(MyLayout), 
       "doc-footer-before": () => h(backtotop),
-      "layout-bottom": () => h(AgreementModal),
+      "layout-top": () => h(AgreementModal),
+      "layout-bottom": () => h(DataPanel),
+
 
     })
   },
