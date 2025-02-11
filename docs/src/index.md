@@ -28,7 +28,6 @@ hero:
 #     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 
-<VisitStats />
 <HomeUnderline />
 <confetti />
 <Home />

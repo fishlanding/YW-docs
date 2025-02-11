@@ -1,10 +1,9 @@
 import { defineConfig } from 'vitepress'
 import { figure } from '@mdit/plugin-figure'
 import { pagefindPlugin, chineseSearchOptimize } from 'vitepress-plugin-pagefind'
-import { generateSidebar, withSidebar } from 'vitepress-sidebar'
+import { generateSidebar } from 'vitepress-sidebar'
 import { devDependencies } from '../../package.json'
 import { compression } from 'vite-plugin-compression2'
-import { VitePressAnalytics } from './theme/utils/googleanalytics'
 
 //git 历史
 import {
@@ -24,21 +23,6 @@ export default defineConfig({
   lastUpdated: true,
   head: [
     ['link', { rel: 'icon', href: '/img/favicon.ico' }],
-    [
-      'script',
-      { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-YGB9T93R16' }
-    ],
-    [
-      'script',
-      {},
-      `window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-YGB9T93R16', {
-        send_page_view: true,
-        anonymize_ip: true
-      });`
-    ],
   ],
   // markdown 配置
   markdown: {
@@ -67,9 +51,6 @@ export default defineConfig({
   vite: {
     plugins: [pagefindPlugin({
       customSearchQuery: chineseSearchOptimize, btnPlaceholder: '搜索', placeholder: '搜索文档', emptyText: '空空如也', heading: '共: {{searchResult}} 条结果', excludeSelector: ['img', 'a.header-anchor']
-    }),
-    VitePressAnalytics({
-      measurementId: 'G-YGB9T93R16' // 替换为你的 Google Analytics 测量 ID
     }),
     GitChangelog({
       // 仓库链接

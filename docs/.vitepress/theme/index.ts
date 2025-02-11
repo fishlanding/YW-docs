@@ -5,6 +5,7 @@ import DefaultTheme from 'vitepress/theme';
 import mediumZoom from 'medium-zoom';
 import { onMounted, watch, nextTick } from 'vue';
 import { inBrowser, useData, useRoute } from 'vitepress';
+import googleAnalytics from 'vitepress-plugin-google-analytics'
 
 // giscus评论
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
@@ -30,7 +31,25 @@ import AgreementModal from './components/AgreementModal.vue'
 import Archive from './components/Archive.vue'
 import TagPage from './components/TagPage.vue'
 import MinecraftServer from './components/MinecraftServer.vue'
-import VisitStats from './components/VisitStats.vue'
+import busuanzi from 'busuanzi.pure.js'
+import MyLayout from './components/MyLayout.vue'
+// 不蒜子
+function reloadBusuanzi() {
+  const busuanziScriptId = "busuanzi-script";
+
+  const existingScript = document.getElementById(busuanziScriptId);
+  if (existingScript) {
+    existingScript.remove();
+  }
+
+  const script = document.createElement("script");
+  script.id = busuanziScriptId;
+  script.src =
+    "https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js";
+  script.async = true;
+
+  document.body.appendChild(script);
+}
 
 // git历史
 import {
@@ -65,9 +84,9 @@ export default {
   extends: DefaultTheme,
   Layout() {
     return h(DefaultTheme.Layout, null, {
+      "doc-footer-after": () => h(MyLayout), 
       "doc-footer-before": () => h(backtotop),
       "layout-bottom": () => h(AgreementModal),
-      'doc-footer-after': () => h(VisitStats)
 
     })
   },
@@ -84,7 +103,9 @@ export default {
     app.component("TagPage", TagPage);
     app.use(NolebaseGitChangelogPlugin);
     app.component('MinecraftServer', MinecraftServer);
-    app.component('VisitStats', VisitStats);
+    googleAnalytics({
+      id: 'G-YGB9T93R16',
+    })
 
     if (inBrowser) {
       NProgress.configure({ showSpinner: false })
@@ -92,6 +113,7 @@ export default {
         NProgress.start() // 开始进度条
       }
       router.onAfterRouteChange = () => {
+        busuanzi.fetch() // 不蒜子
         NProgress.done() // 停止进度条
       }
     }
@@ -102,13 +124,19 @@ export default {
     const { frontmatter } = useData();
 
     // Initialize medium-zoom on mount and route change
-    onMounted(() => {
+    onMounted(async () => {
       initZoom();
+      reloadBusuanzi(); // 初始加载时重新加载不蒜子  
     });
 
     watch(
       () => route.path,
-      () => nextTick(() => initZoom())
+      () => {
+        nextTick(() => {
+          initZoom();
+          reloadBusuanzi(); // 每次路由切换时重新加载不蒜子
+        });
+      }
     );
 
     // giscus评论区
