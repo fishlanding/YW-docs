@@ -33,6 +33,7 @@ import TagPage from './components/TagPage.vue'
 import MinecraftServer from './components/MinecraftServer.vue'
 import busuanzi from 'busuanzi.pure.js'
 import DataPanel from "./components/DataPanel.vue"
+
 // 不蒜子
 function reloadBusuanzi() {
   const busuanziScriptId = "busuanzi-script";
