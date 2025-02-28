@@ -13,7 +13,8 @@ import {
 
 // 双向链接
 import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links'
-
+// 行内链接预览
+import { InlineLinkPreviewElementTransform } from '@nolebase/vitepress-plugin-inline-link-preview/markdown-it'
 
 export default defineConfig({
   lang: "zh-CN",
@@ -38,6 +39,7 @@ export default defineConfig({
       md.use(BiDirectionalLinks({
         dir: 'docs/src'
       }),
+        md.use(InlineLinkPreviewElementTransform),
         figure,
         { figcaption: 'alt', copyAttrs: '^class$', lazy: true }, md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
           let htmlResult = slf.renderToken(tokens, idx, options);
@@ -49,6 +51,18 @@ export default defineConfig({
   },
   // 搜索
   vite: {
+    optimizeDeps: {
+      exclude: [
+        '@nolebase/*',
+        'vitepress',
+      ],
+    },
+    ssr: {
+      noExternal: [
+        '@nolebase/*',
+
+      ],
+    },
     plugins: [pagefindPlugin({
       customSearchQuery: chineseSearchOptimize, btnPlaceholder: '搜索', placeholder: '搜索文档', emptyText: '空空如也', heading: '共: {{searchResult}} 条结果', excludeSelector: ['img', 'a.header-anchor']
     }),
@@ -56,7 +70,9 @@ export default defineConfig({
       // 仓库链接
       repoURL: () => 'https://github.com/fishlanding/YW-docs',
     }),
-    GitChangelogMarkdownSection(),
+    GitChangelogMarkdownSection({
+      exclude: (id) => /index\.md/.test(id),
+    }),
     compression({
       "threshold": 500
     }),

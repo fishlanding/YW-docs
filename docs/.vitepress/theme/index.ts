@@ -52,6 +52,10 @@ function reloadBusuanzi() {
   document.body.appendChild(script);
 }
 
+// 行内链接预览
+import { NolebaseInlineLinkPreviewPlugin } from '@nolebase/vitepress-plugin-inline-link-preview/client'
+import '@nolebase/vitepress-plugin-inline-link-preview/client/style.css'
+
 // git历史
 import {
   NolebaseGitChangelogPlugin
@@ -103,8 +107,9 @@ export default {
     app.component('AgreementModal', AgreementModal);
     app.component("Archive", Archive);
     app.component("TagPage", TagPage);
-    app.use(NolebaseGitChangelogPlugin);
     app.component('MinecraftServer', MinecraftServer);
+    app.use(NolebaseGitChangelogPlugin);
+    app.use(NolebaseInlineLinkPreviewPlugin);
     googleAnalytics({
       id: 'G-YGB9T93R16',
     })

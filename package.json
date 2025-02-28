@@ -2,8 +2,9 @@
   "type": "module",
   "devDependencies": {
     "@mdit/plugin-figure": "^0.16.0",
-    "@nolebase/markdown-it-bi-directional-links": "^2.14.0",
-    "@nolebase/vitepress-plugin-git-changelog": "^2.14.0",
+    "@nolebase/markdown-it-bi-directional-links": "^2.15.0",
+    "@nolebase/vitepress-plugin-git-changelog": "^2.15.0",
+    "@nolebase/vitepress-plugin-inline-link-preview": "^2.15.0",
     "@types/dom-view-transitions": "^1.0.5",
     "@types/node": "^22.13.5",
     "canvas-confetti": "^1.9.3",
@@ -28,6 +29,6 @@
     "vitepress-plugin-comment-with-giscus": "^1.1.15",
     "vitepress-plugin-pagefind": "^0.4.13",
     "vue-router": "^4.5.0",
-    "xgplayer": "^3.0.20"
+    "xgplayer": "^3.0.21"
   }
 }
