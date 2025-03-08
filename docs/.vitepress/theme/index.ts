@@ -56,6 +56,10 @@ function reloadBusuanzi() {
 import { NolebaseInlineLinkPreviewPlugin } from '@nolebase/vitepress-plugin-inline-link-preview/client'
 import '@nolebase/vitepress-plugin-inline-link-preview/client/style.css'
 
+// 阅读增强
+import { NolebaseEnhancedReadabilitiesMenu, NolebaseEnhancedReadabilitiesScreenMenu } from '@nolebase/vitepress-plugin-enhanced-readabilities/client'
+import '@nolebase/vitepress-plugin-enhanced-readabilities/client/style.css'
+
 // git历史
 import {
   NolebaseGitChangelogPlugin
@@ -92,8 +96,8 @@ export default {
       "doc-footer-before": () => h(backtotop),
       "layout-top": () => h(AgreementModal),
       "layout-bottom": () => h(DataPanel),
-
-
+      'nav-bar-content-after': () => h(NolebaseEnhancedReadabilitiesMenu),
+      'nav-screen-content-after': () => h(NolebaseEnhancedReadabilitiesScreenMenu),
     })
   },
   enhanceApp: ({ app, router }) => {

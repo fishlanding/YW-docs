@@ -60,7 +60,6 @@ export default defineConfig({
     ssr: {
       noExternal: [
         '@nolebase/*',
-
       ],
     },
     plugins: [pagefindPlugin({
