@@ -4,7 +4,7 @@ tags:
   - 多人
   - PVP
 created: 2025-02-07
-updated: 2025-02-07
+updated: 2025-03-22
 cover: https://ypy-uss.yuwan886.top/YW-docs/map/ks2/ks2_cover.jpg
 ---
 
@@ -16,7 +16,7 @@ cover: https://ypy-uss.yuwan886.top/YW-docs/map/ks2/ks2_cover.jpg
 - 原址：[Killstreak](https://www.brickmasonsmc.com/creations/maps/killstreak)
 - 版本：1.21
 - 类型：`多人` `PVP`
-- 汉化：敬请期待
+- 汉化：[下崽](https://pan.quark.cn/s/d6333596c7d6)
 
 ## 介绍
 
@@ -25,7 +25,7 @@ cover: https://ypy-uss.yuwan886.top/YW-docs/map/ks2/ks2_cover.jpg
 ## 特点
 
 14 张绚丽多彩的奇妙地图  
-可使用弓箭、弩、三叉戟、药水进行战斗，还能扮演厨师角色  
+可使用弓箭、弩、三叉戟、药水进行战斗，还能选择厨师角色  
 三大精彩模式：连杀模式、积分模式、拉锯战模式  
 可收集从药水到弹药的各类补给品  
 支持多人同场竞技  

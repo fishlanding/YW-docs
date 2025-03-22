@@ -17,7 +17,7 @@ cover: https://ypy-uss.yuwan886.top/YW-docs/map/ttt/ttt_cover.png
 - 原址：[TTT ](https://www.planetminecraft.com/project/rrouble-in-terrorist-town/)
 - 版本：1.21.4
 - 类型：`多人` `PVP` `解密`
-- 汉化：[下崽链接](https://pan.quark.cn/s/a2346444ef67)
+- 汉化：[下崽](https://pan.quark.cn/s/a2346444ef67)
 
 ## 什么是 TTT？
 
